@@ -1,0 +1,35 @@
+{
+  "name": "Crunch AutoReconciler",
+  "version": "0.0.1",
+  "manifest_version": 2,
+  "description": "Crunch AutoReconciler by Imi Borbas",
+  "homepage_url": "http://imiborbas.com",
+  "icons": {
+    "16": "icons/icon16.png",
+    "48": "icons/icon48.png",
+    "128": "icons/icon128.png"
+  },
+  "default_locale": "en",
+  "background": {
+    "page": "src/bg/background.html",
+    "persistent": true
+  },
+  "page_action": {
+    "default_icon": "icons/icon19.png",
+    "default_title": "Crunch AutoReconciler",
+    "default_popup": "src/page_action/page_action.html"
+  },
+  "permissions": [
+    "https://app.crunch.co.uk/crunch-core/client/banking/reconciliation/*"
+  ],
+  "content_scripts": [
+    {
+      "matches": [
+        "https://app.crunch.co.uk/crunch-core/client/banking/reconciliation/*"
+      ],
+      "js": [
+        "src/inject/inject.js"
+      ]
+    }
+  ]
+}
